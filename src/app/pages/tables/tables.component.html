@@ -1,0 +1,65 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Dark table -->
+  <div class="row mt-5">
+    <div class="col">
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <div class="row">
+            <div class="text-left col">
+              <h3 class="text-white mb-0">Restaurant</h3>
+            </div>
+            <div class="text-right col">
+              <button type="button" class="mb-0 ml-2 btn-warning" (click)="onAddProject()">
+                <span class=" mb-0 text-sm mr-2 ml-2">Create</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-dark table-flush">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">NAME</th>
+                <th scope="col">QR_CODE</th>
+                <th scope="col">ADMIN</th>
+                <th scope="col">CREATED_BY</th>
+                <th scope="col">ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of datatableRow">
+                <td>
+                  {{item.project_name}}
+                </td>
+                <td>
+                  <button type="button" (click)="downloadPdf(item.id, item.project_name)"> <span
+                      class="fas fa-download mb-0 text-sm"></span>DOWNLOAD</button>
+                </td>
+                <td>
+                  <span class="mb-0 text-sm">{{item.contact_person}}</span>
+                </td>
+                <td>
+                  <span class="mb-0 text-sm">{{item.username}}</span>
+                </td>
+                <td>
+                  <div class="row">
+                    <button type="button" class="mb-0 mr-2 ml-2" (click)="onUpdateProject(item.id)">
+                      <span class=" mb-0 text-sm fas fa-edit mr-2 ml-2"></span>
+                    </button>
+                    <button type="button" class="mb-0 mr-2 ml-2" (click)="onDeleteProject(item.id)">
+                      <span class="mb-0 text-sm fas fa-trash mr-2 ml-2"></span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

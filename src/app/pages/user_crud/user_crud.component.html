@@ -1,0 +1,108 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center">
+  <!-- Mask -->
+  <span class="mask bg-gradient-danger opacity-8"></span>
+  <!-- Header container -->
+  <div class="container-fluid ">
+
+  </div>
+</div>
+<div class="container-fluid mt--7 justify-content-center">
+  <div class="row justify-content-center">
+    <div class="col-xl-8 order-xl-1">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">{{addEdit}} User</h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()">
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-6">
+                  <!-- first name -->
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                      </div>
+                      <input class="form-control" placeholder="first_name" id="first_name" value={{init_first_name}}
+                        #first_name type="text">
+                    </div>
+                  </div>
+                </div>
+                <!-- last name -->
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="last_name" id="last_name" value={{init_last_name}}
+                      type="text" #last_name>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- username -->
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-badge"></i></span>
+                      </div>
+                      <input class="form-control" placeholder="username" id="username" value={{init_username}} #username
+                        type="text">
+                    </div>
+                  </div>
+                </div>
+                <!-- Gender -->
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Gender" id="gender" value={{init_gender}} type="text"
+                      #gender>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- contact -->
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-building"></i></span>
+                      </div>
+                      <input class="form-control" placeholder="Contact" id="contact" value={{init_contact}} type="text"
+                        #contact>
+                    </div>
+                  </div>
+                </div>
+                <!-- Email -->
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-box-2"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Email" id="email" value={{init_email}} type="text" #email>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="text-center">
+              <button type="submit" name="submitBtn" class="btn btn-primary mt-4">{{action_text}} User</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

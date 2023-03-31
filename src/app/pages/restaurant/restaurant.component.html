@@ -1,0 +1,145 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center">
+  <!-- Mask -->
+  <span class="mask bg-gradient-danger opacity-8"></span>
+  <!-- Header container -->
+  <div class="container-fluid ">
+
+  </div>
+</div>
+<div class="container-fluid mt--7 justify-content-center">
+  <div class="row justify-content-center">
+    <div class="col-xl-8 order-xl-1">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">{{addEdit}} Restaurant</h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()">
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="project_name">Restaurant Name</label>
+                    <input type="text" id="project_name" class="form-control form-control-alternative"
+                      placeholder="Restaurant Name" value={{init_project}} #project_name>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="contact_person">Contact Person</label>
+                    <input type="text" id="contact_person" class="form-control form-control-alternative"
+                      placeholder="Contact Person" value={{init_contact_person}} #contact_person>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input_contact">Contact</label>
+                    <input type="tel" id="input_contact" class="form-control form-control-alternative"
+                      placeholder="Contact" value={{init_contact}} #contact>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input_email">Email</label>
+                    <input type="email" id="input_email" class="form-control form-control-alternative"
+                      placeholder="Email" value={{init_email}} #email>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                        value="{{variableWithZeroValue}}" [checked]="variableWithZeroValue==0? true: false"
+                        (change)="onRadio1Change($event.target.checked)">
+                      <label class="form-check-label" for="exampleRadios1">
+                        Use as food menu
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                        value="{{variableWithZeroValue}}" [checked]="variableWithZeroValue==0? false: true"
+                        (change)="onRadio2Change($event.target.checked)">
+                      <label class="form-check-label" for="exampleRadios2">
+                        Use as antique display
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="my-4" />
+            <!-- Address -->
+            <h6 class="heading-small text-muted mb-4">Upload .mind File</h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <input type="file" class="custom-file-input" (change)="saveMind($event)" id="customFile"
+                      name="customFile">
+                    <label class="form-control custom-file-label" for="customFile">{{mindFile}}</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <a class="link-danger text-decoration-underline"
+                      href="https://hiukim.github.io/mind-ar-js-doc/tools/compile" target="_blank">
+                      <small>No .mind file? Create .mind file here</small>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="my-4" />
+            <!-- Description -->
+            <h6 class="heading-small text-muted mb-4">Upload Image (Same order as creating .mind file)</h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group" *ngIf="is_upload_visible == 'true'">
+                    <input hidden type="file" class="form-control-label" #uploader (change)="saveImage($event)"
+                      name="filename">
+                    <button (click)="uploader.click()" type="button" class="btn btn-secondary">Upload</button>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div *ngFor="let item of imageList">
+                      <span>{{item.name}}&nbsp;</span><span>&nbsp;&nbsp;{{item.size}}</span>
+                      <button type="button" class="btn .btn-close" *ngIf="item.is_show == 'true'"
+                        (click)="onRemove(item)">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group text-right">
+                    <button class="btn btn-primary" type="submit" name="submitBtn">
+                      {{action_text}}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
